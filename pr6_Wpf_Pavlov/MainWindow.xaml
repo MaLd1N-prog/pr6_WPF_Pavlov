@@ -1,0 +1,94 @@
+﻿<Window x:Class="pr6_Wpf_Pavlov.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Кибербезопасность" 
+        Height="695" Width="776"
+        Background="{DynamicResource WindowBackground}">
+
+ 
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <DockPanel Grid.Row="0" LastChildFill="False" Margin="20,20,20,10">
+            <TextBlock Text="Кибербезопасность" FontSize="22" FontWeight="Bold"/>
+            <Button DockPanel.Dock="Right" Content="Сменить тему" Click="Button_Click"/>
+        </DockPanel>
+
+        <Grid Grid.Row="1" Margin="20,0,20,20" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0">
+                <Border BorderThickness="1" BorderBrush="{DynamicResource BorderColor}" CornerRadius="8" Padding="10" Margin="0,0,0,15">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="Защита системы" FontWeight="Bold" Margin="0,0,0,10"/>
+                        <CheckBox Content="Брандмауэр включён" IsChecked="True"/>
+                        <CheckBox Content="Антивирус активен" IsChecked="True"/>
+                        <CheckBox Content="Автообновления"/>
+                    </StackPanel>
+                </Border>
+
+                <Border BorderThickness="1" BorderBrush="{DynamicResource BorderColor}" CornerRadius="8" Padding="10" Margin="0,0,0,15">
+                    <StackPanel>
+                        <TextBlock Text="Режим проверки" FontWeight="Bold" Margin="4,0,4,10"/>
+                        <RadioButton Content="Быстрая" IsChecked="True"/>
+                        <RadioButton Content="Полная"/>
+                        <RadioButton Content="Выборочная"/>
+                    </StackPanel>
+                </Border>
+
+                <Border BorderThickness="1" BorderBrush="{DynamicResource BorderColor}" CornerRadius="8" Padding="10" Margin="0,0,0,15">
+                    <StackPanel>
+                        <TextBlock Text="Путь для сканирования:" Margin="4,4,4,0"/>
+                        <TextBox Text="C:\Users\Student\Downloads"/>
+
+                        <TextBlock Text="Комментарий:" Margin="4,8,4,0"/>
+                        <TextBox Height="60" AcceptsReturn="True" TextWrapping="Wrap"/>
+                    </StackPanel>
+                </Border>
+
+                <Border BorderThickness="1" BorderBrush="{DynamicResource BorderColor}" CornerRadius="8" Padding="10">
+                    <StackPanel>
+                        <TextBlock Text="Уровень проверки:" Margin="4,0,4,4"/>
+                        <ComboBox SelectedIndex="1">
+                            <ComboBoxItem Content="Низкий"/>
+                            <ComboBoxItem Content="Стандартный"/>
+                            <ComboBoxItem Content="Полный"/>
+                        </ComboBox>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+
+            <StackPanel Grid.Column="2">
+                <Border BorderThickness="1" BorderBrush="{DynamicResource BorderColor}" CornerRadius="8" Padding="10" Margin="0,0,0,15">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="Статус" FontWeight="Bold" Margin="0,0,0,10"/>
+                        <TextBlock Text="Система готова к проверке" Margin="0,0,0,8"/>
+                        <ProgressBar Value="35" Maximum="100" Height="20"/>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                            <Button Content="Начать проверку"/>
+                            <Button Content="Пауза" Style="{StaticResource SecondaryButton}"/>
+                            <Button Content="Удалить" Style="{StaticResource ScanButton}"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+
+                <Border BorderThickness="1" BorderBrush="{DynamicResource BorderColor}" CornerRadius="8" Padding="10">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="Опасная зона" FontWeight="Bold" Margin="0,0,0,10"/>
+                       
+                        <TextBlock Text="Требуется подтверждение администратора" Foreground="{DynamicResource TextSecondary}" Margin="0,0,0,10"/>
+                        <Button Content="Отключить защиту" Style="{StaticResource DangerButton}" IsEnabled="False" HorizontalAlignment="Left" />
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
